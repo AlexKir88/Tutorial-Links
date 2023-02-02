@@ -1,4 +1,6 @@
 .flexcont {
   display: flex;
   flex-direction: row;
+  box-sizing: border-box;
+  border: 1.6vw solid rgb(13, 12, 12);
 }

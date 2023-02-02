@@ -1,3 +1,26 @@
 .main {
     width: 65vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+.group {
+    width: 20vw;
+    border: 1px solid gray;
+    border-radius: 1vw;
+    margin: 1vw;
+    height: max-content;
+    background-color: rgb(239, 209, 120);
+    overflow: hidden;
+    h4 {
+        position: relative;
+        left: -1vw;
+    }
+}
+.link {
+    width: 20vw;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.5;
+    }
 }
