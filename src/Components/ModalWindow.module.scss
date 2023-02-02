@@ -1,0 +1,55 @@
+.modalWindow {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    height: 20rem;
+    position: fixed;
+    top: 25vh;
+    left: 30vw;
+    border: 5px solid rgb(164, 21, 183);
+    border-radius: 1vw;
+    padding: 1VW;
+    background-color: rgb(13, 12, 12);
+    color:white;
+    visibility: hidden;
+    span {
+        display: inline-block;
+        width: 10vw;
+    }
+}
+.boxField {
+    justify-content: start;
+}
+.name, .url {
+    margin-top: 1vw;
+    height: 1.5rem;
+    width: 10vw;
+    display: inline;
+    border-radius: 0.3vw;
+}
+.comment {
+    margin-top: 1vw;
+    height: 5rem;
+    width: 20vw;
+    border-radius: 0.3vw;
+}
+.add {
+    margin-top: 1vw;
+    width: 5vw;
+    height: 2rem;
+    position: relative;
+    left: 20vw;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    background-color: rgb(164, 21, 183);
+    color: white;
+  
+}
+.close {
+    width: 1vw;
+    height: 1.1vw;
+    padding: 0;
+    position: relative;
+    left: 34vw;
+    cursor: pointer;
+}

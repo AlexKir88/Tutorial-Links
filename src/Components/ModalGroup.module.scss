@@ -1,0 +1,80 @@
+.modalWindow {
+    display: flex;
+    flex-direction: column;
+    width: 18vw;
+    height: 15rem;
+    position: fixed;
+    top: 25vh;
+    left: 30vw;
+    border: 5px solid rgb(164, 21, 183);
+    border-radius: 1vw;
+    padding: 0.5VW;
+    background-color: rgb(13, 12, 12);
+    color: white;
+    visibility: hidden;
+    h3 {
+        margin-top: 1vw;
+        margin-left: 1.5vw;
+    }
+    span {
+        display: inline-block;
+        width: 10vw;
+    }
+}
+
+.boxField {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    span {
+        display: inline-block;
+        width: 10vw;
+    }
+}
+
+.name {
+    margin: 0 1vw;
+    height: 1.5rem;
+    width: 10vw;
+    display: inline;
+    border-radius: 0.3vw;
+}
+
+.comment {
+    margin-top: 1vw;
+    height: 5rem;
+    width: 20vw;
+    border-radius: 0.3vw;
+}
+
+.add {
+    margin-top: 1vw;
+    width: 5vw;
+    height: 2rem;
+    position: relative;
+    left: 13vw;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    background-color: rgb(164, 21, 183);
+    color: white;
+
+}
+
+.close {
+    width: 1vw;
+    height: 1.1vw;
+    padding: 0;
+    position: relative;
+    left: 17vw;
+    cursor: pointer;
+}
+.square {
+    width: 1vw;
+    height: 1vw;
+}
+.inputColor {
+    display: flex;
+    width: 5vw;
+    height: 1rem;
+    margin-top: 0.5vw;
+}

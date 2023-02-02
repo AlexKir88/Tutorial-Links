@@ -23,7 +23,7 @@ export const addGroup = (name, color) => {
     }
 }
 
-export const addLink = ({nameLink, url, comment}, nameGroup) => {
+export const addLink = (nameGroup, {nameLink, url, comment} ) => {
     const indDB = indexedDB.open('main', 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
