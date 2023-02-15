@@ -3,18 +3,23 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .group {
-    width: 20vw;
+    width: 15vw;
+    min-width: 18vw;
+    min-height: 15rem;
     border: 1px solid gray;
     border-radius: 1vw;
     margin: 1vw;
     height: max-content;
     background-color: rgb(239, 209, 120);
     overflow: hidden;
+    padding: 0;
     h4 {
         position: relative;
         left: -1vw;
+        margin: 0, 0, 0, 1vw;
     }
 }
 .link {
@@ -26,14 +31,26 @@
 }
 .addLink {
     margin-top: 1vw;
-    border-radius: 0.3vw;
     border: none;
-    background-color: rgb(161, 86, 171, 0.5);
+    background-color: inherit;
     padding-top: 0.1vw;
     cursor: pointer;
     position: relative;
-    left: 6vw;
+    left: 9vw;
+    width: 1vw;
     &:hover {
-        background-color: rgba(207, 158, 214, 0.5)
+        color: red;
     }
+}
+.delGroup {
+    position: relative;
+    left: 13vw;
+    display: inline;
+    &:hover {
+        color: red;
+    }
+}
+.headerGroup {
+    display: inline-block;
+    width: 10vw;
 }

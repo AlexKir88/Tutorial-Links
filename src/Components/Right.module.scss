@@ -4,10 +4,30 @@
     width: 20vw;
 }
 .info {
-    height: 45vh;
+    height: 70vh;
     border: 1px solid rgba(101, 97, 97, 0.5);
+    padding-left: 2vw;
+    overflow: hidden;
+
 }
 .last {
-    height: 45vh;
+    height: max-content;
     border: 1px solid rgba(101, 97, 97, 0.5);
+}
+.boxButton {
+    display: flex;
+}
+.button {
+    color: white;
+    position: relative;
+    border-radius: 0.7vw;
+    width: 5vw;
+    margin-right: 2vw;
+    background-color: rgb(164, 21, 183);
+    height: 2rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(161, 86, 171);
+    }
 }

@@ -23,6 +23,18 @@ export const addGroup = (name, color) => {
     }
 }
 
+export const delGroup = (nameGroup) => {
+    let indDB = indexedDB.open('main', 1);
+    indDB.onsuccess = () => {
+        const transaction = indDB.result.transaction('groups' , 'readwrite');
+        const groups = transaction.objectStore('groups');
+        const requestContent = groups.delete(nameGroup);
+        requestContent.onsuccess = (e) => {
+            console.log(e)
+        }
+    }
+}
+
 export const addLink = (nameGroup, {nameLink, url, comment} ) => {
     const indDB = indexedDB.open('main', 1);
     indDB.onsuccess = () => {
@@ -64,6 +76,21 @@ export const getGroups = (setGroups) => {
         const requestGet = groups.getAll()
         requestGet.onsuccess = () => {
             setGroups(requestGet.result);
+        }
+    }
+}
+
+export const delLink = (group, nameLink) => {
+    const indDB = indexedDB.open('main', 1);
+    indDB.onsuccess = () => {
+        const transaction = indDB.result.transaction('groups', 'readwrite');
+        const groupsStore = transaction.objectStore('groups');
+        const requestGet = groupsStore.get(group);
+        requestGet.onsuccess = () => {
+            const newContent = requestGet.result.content.filter((item) => {
+                return item.nameLink != nameLink;
+            })
+            groupsStore.put(Object.assign(requestGet.result, {content: newContent}), group);
         }
     }
 }
