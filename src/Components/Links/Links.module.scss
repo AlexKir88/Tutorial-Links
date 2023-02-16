@@ -1,9 +1,11 @@
 .main {
     width: 65vw;
+    height: 93vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow-y: auto;
 }
 .group {
     width: 15vw;

@@ -1,8 +1,16 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './ModalWindow.module.scss';
+import { connect } from 'react-redux';
 
-const ModalWindow = ({setstateVisib, visibility, pushLink}) => {
+const ModalWindow = ({currentLink, setstateVisib, visibility, pushLink, isEdit}) => {
     const form = useRef();
+    useEffect(()=> {
+        if (isEdit) {
+            form.current.name.value = currentLink.nameLink;
+            form.current.url.value = currentLink.url;
+            form.current.comment.value = currentLink.comment;
+        }
+    })
     const doneEnter = (e) => {
         pushLink({
             nameLink: e.target.name.value,
@@ -26,17 +34,19 @@ const ModalWindow = ({setstateVisib, visibility, pushLink}) => {
             <button className={styles.close} onClick={close}>X</button>
             <h3>Input data</h3>
             <div className={styles.boxField}>
-                <span>name</span> <input name='name' type='text' className={styles.name}/>
+                <span>name</span> <input name='name' type='text' className={styles.name} />
             </div>
             <div className={styles.boxField}>
-                <span>url</span> <input  name='url' type='text' className={styles.url}/>
+                <span>url</span> <input  name='url' type='text' className={styles.url} />
             </div>
             <div className={styles.boxField}>
-                 <span>comment</span> <textarea name='comment' className={styles.comment}/>
+                 <span>comment</span> <textarea name='comment' className={styles.comment} />
             </div>
             <button type='submit' className={styles.add}>done</button>
         </form>
     )
 }
-
-export default ModalWindow;
+const mapStateFromProp = ({currentLink}) => {
+    return {currentLink}
+}
+export default connect(mapStateFromProp)(ModalWindow);

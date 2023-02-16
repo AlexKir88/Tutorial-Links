@@ -4,12 +4,14 @@ import { combineReducers } from "redux";
 export const initState = {
     visibilityModalGroup: 'hidden',
     currentLink: {
-        group: 'HTML & CSS',
-        nameLink: 'html5css.ru',
-        url: 'https://html5css.ru/',
-        comment: 'all tags HTML & CSS'
-    }
+        group: '',
+        nameLink: '',
+        url: '',
+        comment: ''
+    },
+    currentMenu: 'Links'
 }
+
 export const visibilityModalGroup = (state = 'hidden', action) => {
     switch (action.type) {
         case 'VISMODGR': return action.visibilityModalGroup;
@@ -23,7 +25,15 @@ export const currentLink = (state = initState.currentLink, action) => {
    } 
 }
 
+export const currentMenu = (state = 'Links', action) => {
+    switch (action.type) {
+        case 'MENU' : return action.menu;
+    default: return state
+   } 
+}
+
 export const reducer = combineReducers({
     visibilityModalGroup,
-    currentLink 
+    currentLink,
+    currentMenu 
 })

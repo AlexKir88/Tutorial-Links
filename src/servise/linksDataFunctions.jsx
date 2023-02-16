@@ -1,10 +1,13 @@
 
+
+
 export const addGroup = (name, color) => {
 
     const indDB = indexedDB.open('main', 1);
     indDB.onupgradeneeded = () => {
         const result = indDB.result;
         result.createObjectStore('groups');
+        result.createObjectStore('notes');
     }
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
@@ -91,6 +94,24 @@ export const delLink = (group, nameLink) => {
                 return item.nameLink != nameLink;
             })
             groupsStore.put(Object.assign(requestGet.result, {content: newContent}), group);
+        }
+    }
+}
+
+export const editLink = (group, oldName,  objLink) => {
+    const indDB = indexedDB.open('main', 1);
+    indDB.onsuccess = () => {
+        const transaction = indDB.result.transaction('groups', 'readwrite');
+        const groupsStore = transaction.objectStore('groups');
+        const requestGet = groupsStore.get(group);
+        requestGet.onsuccess = () => {
+            const newContent =  requestGet.result.content.map((item) => {
+                if (item.nameLink == oldName) {
+                    return objLink;
+                }
+                return item;
+            })
+            groupsStore.put(Object.assign(requestGet.result, {content: newContent}), group)
         }
     }
 }

@@ -1,24 +1,25 @@
 import './App.css';
 import Menu from './Components/Menu';
-import Main from './Components/Main';
-import Right from './Components/Right';
 import { Provider } from 'react-redux';
-import {reducer, initState} from './servise/storage'
+import {reducer, initState} from './servise/storage';
 import { createStore } from 'redux';
+import { connect } from 'react-redux';
+import Main from './Components/Main';
+
 
 const store = createStore(reducer, initState);
 
-function App() {
+function App( {currentMenu}) {
   return (
     <Provider store={store}>
       <div className='flexcont'>
         <Menu />
         <Main />
-        <Right />
       </div>
     </Provider>
     
   );
 }
+
 
 export default App;
