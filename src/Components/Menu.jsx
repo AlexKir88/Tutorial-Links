@@ -1,5 +1,9 @@
 import styles from './Menu.module.scss';
 import { connect } from 'react-redux';
+import { AiOutlineLink } from 'react-icons/ai';
+import {TbNotes} from'react-icons/tb';
+import {MdOutlineBackup} from'react-icons/md';
+import {BsFillInfoSquareFill} from'react-icons/bs';
 
 const Menu = ({currentMenu, dispatch}) => {
 
@@ -28,13 +32,13 @@ const Menu = ({currentMenu, dispatch}) => {
     }
     return (
     <div className={styles.menu}>
-        <div className={styles.header}><h2>//Tutorial Links</h2></div>
+        <div className={styles.header}><h2>Tutorial Links</h2></div>
         <div className={styles.boxButton}>
             <button className={styles.create} onClick={clickCreate}>Create group</button>
-            <button className={styles.buttonMenu} name='Links' onClick={(e) => choiseMenu(e, 'Links')} ref={matchName}>IMG Links</button>
-            <button className={styles.buttonMenu} name='Notes' onClick={(e) => choiseMenu(e, 'Notes')} ref={matchName}>IMG Notes</button>
-            <button className={styles.buttonMenu} name='Buckup' onClick={(e) => choiseMenu(e, 'Buckup')} ref={matchName}>IMG Buckup</button>
-            <button className={styles.buttonMenu} name='About' onClick={(e) => choiseMenu(e, 'About')} ref={matchName}>IMG About</button>
+            <button className={styles.buttonMenu} name='Links' onClick={(e) => choiseMenu(e, 'Links')} ref={matchName}><AiOutlineLink /> Links</button>
+            <button className={styles.buttonMenu} name='Notes' onClick={(e) => choiseMenu(e, 'Notes')} ref={matchName}><TbNotes /> Notes</button>
+            <button className={styles.buttonMenu} name='Backup' onClick={(e) => choiseMenu(e, 'Backup')} ref={matchName}><MdOutlineBackup /> Back up</button>
+            <button className={styles.buttonMenu} name='About' onClick={(e) => choiseMenu(e, 'About')} ref={matchName}><BsFillInfoSquareFill /> About</button>
         </div>
     </div>
    )

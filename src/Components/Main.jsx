@@ -3,10 +3,11 @@ import RightLinks from './Links/RightLinks';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import Notes from './Notes/Notes';
+import RightNote from './Notes/RightNote';
+import { initState } from '../servise/storage';
 
-function Main( {currentMenu}) {
+function Main( {currentMenu, currentNote, dispatch}) {
   const [groups, setGroups] = useState([]);
-  const [notes, setNotes] = useState([]);
   const mainContent = {
     Links: (
       <>
@@ -16,7 +17,8 @@ function Main( {currentMenu}) {
     ),
     Notes: (
       <>
-        <Notes notes={notes} setNotes={setNotes} />
+        <Notes />
+        <RightNote currentNote={currentNote}/>
       </>
     )
   }
@@ -27,9 +29,10 @@ function Main( {currentMenu}) {
   );
 }
 
-const mapStateFromProp = ({currentMenu}) => {
+const mapStateFromProp = ({currentMenu, currentNote}) => {
   return {
-    currentMenu
+    currentMenu,
+    currentNote
   }
 }
 

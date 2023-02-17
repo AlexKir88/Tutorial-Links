@@ -18,7 +18,8 @@ export const defaultGroup = {
 export const defaultNotes = [
     {
         name: 'Create new project +react +redux +sass',
-        text: `1. >npx create-react-app name
+        content: `
+        1. >npx create-react-app name
         2. >npm install redux
         3. >npm install --save react-redux
         4. >npm install sass`

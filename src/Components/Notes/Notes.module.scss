@@ -1,0 +1,51 @@
+.cont {
+    display: flex;
+    flex-direction: column;
+}
+.note {
+    height: 1.5rem;
+    width: 50vw;
+    border: 1px solid black;
+    padding: 0.5vw;
+    margin: 0.5vw;
+    border-radius: 0.5vw;
+    background-color: rgb(118, 186, 241);
+    cursor: pointer;
+}
+.nameNote {
+    // width: 35vw;
+}
+
+.edit {
+    position: relative;
+    left: 44vw;
+    top: -1vw;
+    cursor: pointer;
+    &:hover {
+        color: red;
+    }
+}
+.trash {
+    position: relative;
+    left: 45vw;
+    top: -1vw;
+    cursor: pointer;
+    &:hover {
+        color: red;
+    }
+}
+.plus {
+    width: 1.5vw;
+    height: 1.5vw;
+    padding: 1vw;
+    background-color: rgb(103, 21, 210);
+    border-radius: 0.5vw;
+    color: white;
+    position: relative;
+    margin: 1vw;
+    left: 23vw;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(168, 123, 227);
+    }
+}

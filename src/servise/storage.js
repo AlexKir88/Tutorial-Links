@@ -9,7 +9,11 @@ export const initState = {
         url: '',
         comment: ''
     },
-    currentMenu: 'Links'
+    currentMenu: 'Links',
+    currentNote: {
+        name: '',
+        content: '',
+    },
 }
 
 export const visibilityModalGroup = (state = 'hidden', action) => {
@@ -31,9 +35,17 @@ export const currentMenu = (state = 'Links', action) => {
     default: return state
    } 
 }
+export const currentNote = (state = initState.currentNote, action) => {
+    switch (action.type) {
+       
+        case 'NOTE' : return action.note;
+    default: return state
+   } 
+}
 
 export const reducer = combineReducers({
     visibilityModalGroup,
     currentLink,
-    currentMenu 
+    currentMenu,
+    currentNote,
 })
