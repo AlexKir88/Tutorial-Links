@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import Notes from './Notes/Notes';
 import RightNote from './Notes/RightNote';
+import Backup from './Backup/Backup'
 import { initState } from '../servise/storage';
 
 function Main( {currentMenu, currentNote, dispatch}) {
@@ -20,11 +21,16 @@ function Main( {currentMenu, currentNote, dispatch}) {
         <Notes />
         <RightNote currentNote={currentNote}/>
       </>
+    ),
+    Backup: (
+      <>
+        <Backup />
+      </>
     )
   }
   return (
     <>
-        {mainContent[currentMenu]}
+      {mainContent[currentMenu]}
     </>
   );
 }

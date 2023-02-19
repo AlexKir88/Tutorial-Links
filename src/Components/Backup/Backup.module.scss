@@ -1,0 +1,41 @@
+.container {
+    width: 50vw;
+    height: 90vh;
+    text-align: center;
+}
+
+.backup {
+    width: 40vw;
+    margin: 10vw 10vw;
+    border-radius: 0.5vw;
+    background-color: rgb(103, 21, 210);
+    color: white;
+    padding: 1vw;
+    input{
+        width: 13vw;
+        background-color: rgb(13, 12, 12);
+        cursor: pointer;
+        margin: 0.3vw 0;
+        height: 2.5rem;
+        color: white;
+        text-align: start;
+        border-radius: 0.5vw;
+        &:hover {
+            background-color: rgb(32, 27, 33);
+        }
+    }
+}
+.buttonSend, .buttonLoad  {
+    // display: block;
+    width: 3vw;
+    background-color: rgb(13, 12, 12);
+    cursor: pointer;
+    margin: 1vw;
+    height: 2.5rem;
+    color: white;
+    text-align: start;
+    border-radius: 0.5vw;
+    &:hover {
+        background-color: rgb(32, 27, 33);
+    }
+}

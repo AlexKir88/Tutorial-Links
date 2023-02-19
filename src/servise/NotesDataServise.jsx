@@ -42,3 +42,23 @@ export const  delNote = (name) => {
         const delreq = notes.delete(name);
     } 
 }
+
+export const getAllData = (saveFileCallback, aRef ) => {
+    const indDB = indexedDB.open('main', 1);
+    indDB.onsuccess = () => {
+        const transaction1 = indDB.result.transaction('groups', 'readonly');
+        const groups = transaction1.objectStore('groups');
+        const queryGetGroup = groups.getAll();
+        queryGetGroup.onsuccess = () => {
+            const allGroups = queryGetGroup.result;
+            const transaction2 = indDB.result.transaction('notes', 'readonly');
+            const notes = transaction2.objectStore('notes');
+            const queryGetNotes = notes.getAll();
+            queryGetNotes.onsuccess = () => {
+                const allNotes = queryGetNotes.result;
+                saveFileCallback(allGroups, allNotes, aRef)
+            }
+        }
+        
+    }
+}
