@@ -36,8 +36,6 @@ const ModalNote = ({ setVisibility, visibility, setNotes, isEdit, currentNote, d
         getsNotes(setNotes)
         
         setVisibility('hidden');
-        // e.preventDefault();
-        // e.stopPropagation();
     }
 
     const close = (e) => {

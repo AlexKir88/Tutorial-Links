@@ -4,24 +4,15 @@ import { FiPlus } from 'react-icons/fi';
 import {TbTrashX}  from 'react-icons/tb';
 import ModalWindow from './ModalWindow';
 import ModalGroup from './ModalGroup';
-import { addLink, addGroup, delGroup, getGroups, contenStore} from '../../servise/linksDataFunctions';
-import { defaultGroup } from '../../servise/defaultData';
+import { addLink, addGroup, delGroup, getGroups, addDefoultData} from '../../servise/linksDataFunctions';
 import { connect } from 'react-redux';
 
 const Links = ({groups, setGroups, dispatch}) => {
     const [stateVisib, setStateVisib] = useState('hidden');
     const [currentGroup, setcurrentGroup] = useState();
 
-    const addDefoultData = () => {
-        addGroup(defaultGroup.name, defaultGroup.color);
-        defaultGroup.content.forEach( (item) => {
-            addLink(defaultGroup.name, item);
-        })
-    }
-
     useEffect(() => {
-        addDefoultData();
-        getGroups(setGroups);
+        addDefoultData(setGroups);
     }, [])
 
     const inpLink = (e) => {

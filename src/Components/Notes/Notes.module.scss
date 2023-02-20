@@ -1,6 +1,7 @@
 .cont {
     display: flex;
     flex-direction: column;
+    width: 52vw;
 }
 .note {
     height: 1.5rem;
@@ -12,10 +13,6 @@
     background-color: rgb(118, 186, 241);
     cursor: pointer;
 }
-.nameNote {
-    // width: 35vw;
-}
-
 .edit {
     position: relative;
     left: 44vw;

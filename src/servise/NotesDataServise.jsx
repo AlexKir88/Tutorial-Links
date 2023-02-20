@@ -3,7 +3,7 @@ export const addNote = (objNote) => {
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('notes', 'readwrite');
         const notes = transaction.objectStore('notes');
-        const requestAdd = notes.add(objNote, objNote.name);
+        const requestAdd = notes.put(objNote, objNote.name);
         requestAdd.onsuccess = () => {
             console.log(requestAdd.result);
         }
@@ -39,7 +39,7 @@ export const  delNote = (name) => {
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('notes', 'readwrite');
         const notes = transaction.objectStore('notes');
-        const delreq = notes.delete(name);
+        notes.delete(name);
     } 
 }
 

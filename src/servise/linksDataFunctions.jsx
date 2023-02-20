@@ -1,27 +1,45 @@
+import { defaultGroup, defaultNotes } from "./defaultData";
+import { addNote } from "./notesDataServise";
 
-
-
-export const addGroup = (name, color) => {
-
+export const addDefoultData = (setGroups) => {
+    let firstTime = false;
     const indDB = indexedDB.open('main', 1);
     indDB.onupgradeneeded = () => {
         const result = indDB.result;
         result.createObjectStore('groups');
         result.createObjectStore('notes');
+        firstTime = true;
     }
+    indDB.onsuccess = () => {
+        if (firstTime) {
+            setTimeout(() => {
+                addGroup(defaultGroup.name, defaultGroup.color);
+                defaultGroup.content.forEach( (item) => {
+                    addLink(defaultGroup.name, item);
+                })
+                defaultNotes.forEach((item) =>{
+                    addNote(item);
+                })
+            }, 500)
+        }
+        setTimeout(() => getGroups(setGroups), 1000)
+    }
+}
+
+
+export const addGroup = (name, color) => {
+
+    const indDB = indexedDB.open('main', 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
         const groups = transaction.objectStore('groups');
-        const requestAdd = groups.add({
+        const requestAdd = groups.put({
             name,
             color,
             content: []
        }, name)
         requestAdd.onsuccess = () => {
             console.log(`create object ${name}`);
-        }
-        requestAdd.onerror = (err) => {
-            // console.log(err)
         }
     }
 }

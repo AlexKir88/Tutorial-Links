@@ -4,7 +4,7 @@ import {TbTrashX}  from 'react-icons/tb';
 import styles from './Notes.module.scss';
 import { defaultNotes } from "../../servise/defaultData";
 import { useEffect, useState } from "react";
-import { addNote, delNote, getsNotes } from "../../servise/notesDataServise";
+import { delNote, getsNotes } from "../../servise/notesDataServise";
 import {TfiPlus} from  'react-icons/tfi';
 import ModalNote from "./ModalNote";
 import { initState } from "../../servise/storage";
@@ -13,13 +13,7 @@ const Notes = ({dispatch, currentNote }) => {
     const [isEdit, setIsEdit] = useState(false);
     const [visibility, setVisibility] = useState();
     const [notes, setNotes] = useState([]);
-    const addDefoultData = () => {
-        defaultNotes.forEach((item) =>{
-            addNote(item);
-        })
-    }
      useEffect(() => {
-        addDefoultData();
         getsNotes(setNotes);
     }, [])
 

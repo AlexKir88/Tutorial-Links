@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Notes from './Notes/Notes';
 import RightNote from './Notes/RightNote';
 import Backup from './Backup/Backup'
-import { initState } from '../servise/storage';
+import About from './About/About';
 
 function Main( {currentMenu, currentNote, dispatch}) {
   const [groups, setGroups] = useState([]);
@@ -25,6 +25,11 @@ function Main( {currentMenu, currentNote, dispatch}) {
     Backup: (
       <>
         <Backup />
+      </>
+    ),
+    About: (
+      <>
+        <About />
       </>
     )
   }
