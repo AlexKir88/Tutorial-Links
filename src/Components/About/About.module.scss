@@ -1,0 +1,55 @@
+.about {
+    margin: 3vh  10vw;
+    overflow: hidden;
+    width: 55vw;
+    background-color: rgb(103, 21, 210);
+    padding: 1vh 3vw;
+    color: white;
+    word-wrap: break-word;
+    border-radius: 1vw;
+}
+
+.feedback {
+    margin: 3vh 10vw;
+    overflow: hidden;
+    width: 55vw;
+    background-color: rgb(103, 21, 210);
+    color: white;
+    word-wrap: break-word;
+    border-radius: 1vw;
+    padding: 3vh 3vw 1vw;;
+    button {
+        display: block;
+        background-color: rgb(13, 12, 12);
+        cursor: pointer;
+        margin: 2vh 30vw;
+        height: 6vh;
+        color: white;
+        text-align: center;
+        border-radius: 0.5vw;
+        &:hover {
+            background-color: rgb(32, 27, 33);
+        }
+    }
+    div {
+        margin: 2vh 0;
+    }
+    .name {
+        border-radius: 0.5vw;
+        margin-left: 2vw;
+        height: 1.5rem;
+    }
+    .text {
+        border-radius: 0.5vw;
+        margin-left: 1vw;
+    }
+    .contact {
+        border-radius: 0.5vw;
+        margin: 0 0 1vh 1.2vw;
+        height: 1.5rem;
+    }
+   .text {
+    width: 50vw;
+    height: 12vh;
+   }
+}

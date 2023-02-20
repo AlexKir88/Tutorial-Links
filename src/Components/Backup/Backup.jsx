@@ -2,10 +2,12 @@ import styles from './Backup.module.scss';
 import { getAllData } from '../../servise/notesDataServise';
 import { addGroup, addLink } from '../../servise/linksDataFunctions';
 import { addNote } from '../../servise/notesDataServise';
+import { connect } from 'react-redux';
 
-const Backup = () => {
+const Backup = ({language}) => {
     let aRef;
     let inpRef;
+    let messageLoad;
     const saveFileCallback = (allGroups, allNotes, aRef) => {
         let allData = {};
         allData.groups = allGroups;
@@ -40,21 +42,28 @@ const Backup = () => {
             allData.notes.forEach(elem => {
                 addNote(elem);
             })
-            console.log('done');
+            messageLoad.style.visibility = 'visible';
+            setTimeout(() => messageLoad.style.visibility = 'hidden', 3000)
         };
     }
     return (
         <div className={styles.container}>
             <div className={styles.backup}>
-                <p>To save the data to a file, click the "Save" button</p>
-                <button className={styles.buttonSend} onClick={saveFile} type="button">Save</button>
-                <p>To load a previously saved file, click the "Download" button</p>
-                <button className={styles.buttonLoad} onClick={loadFile} type="button">Download</button>
+                <p>{language.textSave}</p>
+                <button className={styles.buttonSend} onClick={saveFile} type="button">{language.buttonSave}</button>
+                <p>{language.textDownload}</p>
+                <button className={styles.buttonLoad} onClick={loadFile} type="button">{language.buttonDownload}</button>
+                <div className={styles.message}  style={{visibility: 'hidden'}} ><p ref={e => messageLoad = e}>{language.messageComplete}</p></div>
                 <a ref={(e) => aRef = e } style={{visibility: 'hidden'}} >link </a>
                 <input ref={(e) => inpRef = e } type='file'  onChange={readFile} style={{visibility: 'hidden'}} />
-               
             </div>
         </div>
     )
 }
-export default Backup;
+
+const mapStateFromProp = ({language}) => {
+    return {
+        language,
+    }
+}
+export default connect(mapStateFromProp)(Backup);

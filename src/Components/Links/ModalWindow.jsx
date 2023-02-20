@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './ModalWindow.module.scss';
 import { connect } from 'react-redux';
 
-const ModalWindow = ({currentLink, setstateVisib, visibility, pushLink, isEdit}) => {
+const ModalWindow = ({currentLink, language, setstateVisib, visibility, pushLink, isEdit}) => {
     const form = useRef();
     useEffect(()=> {
         if (isEdit) {
@@ -32,7 +32,7 @@ const ModalWindow = ({currentLink, setstateVisib, visibility, pushLink, isEdit})
     return(
         <form className={styles.modalWindow} onSubmit={doneEnter} ref={form} style={{visibility}}>
             <button className={styles.close} onClick={close}>X</button>
-            <h3>Input data</h3>
+            <h3>{language.inputData}</h3>
             <div className={styles.boxField}>
                 <span>name</span> <input name='name' type='text' className={styles.name} />
             </div>
@@ -46,7 +46,10 @@ const ModalWindow = ({currentLink, setstateVisib, visibility, pushLink, isEdit})
         </form>
     )
 }
-const mapStateFromProp = ({currentLink}) => {
-    return {currentLink}
+const mapStateFromProp = ({currentLink, language}) => {
+    return {
+        currentLink,
+        language
+    }
 }
 export default connect(mapStateFromProp)(ModalWindow);

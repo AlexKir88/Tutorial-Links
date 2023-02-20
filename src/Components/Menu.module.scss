@@ -1,7 +1,18 @@
 
-
+.language {
+    button{
+        height: 1.5rem;
+        border-radius: 0.5vw;
+        background-color: rgb(103, 21, 210);
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(168, 123, 227);
+        }
+    }
+}
 .menu {
-    width: 13vw;
+    width: 14vw;
     padding: 1vw ;
     margin: 0;
     background-color: rgb(13, 12, 12);

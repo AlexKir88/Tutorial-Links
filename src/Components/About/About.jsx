@@ -1,21 +1,40 @@
+import styles from './About.module.scss'
+import { sendInTlg } from '../../servise/mainDataFuncyion';
+import { connect } from 'react-redux';
 
-const About = () => {
+const About = ({language}) => {
+    const sendMessage = (e) => {
+        if (e.target.tagName != 'BUTTON') return;
+        let name = e.currentTarget[0].value;
+        let contacts = e.currentTarget[1].value;
+        let contents = e.currentTarget[2].value;
+        sendInTlg('/' + 'message' + '/' + name + '/' + contacts + '/' + contents + '/');
+        e.currentTarget[0].value = '';
+        e.currentTarget[1].value = '';
+        e.currentTarget[2].value = '';
+    }
     return (
         <div>
-            <div>
-                <p>This application is designed to store useful links and notes. 
-                    In the item "links" it is possible to create groups and add links to these groups. 
-                    In the item "notes" it is possible to create short notes. 
-                    In the "backup" item, it is possible to upload and download previously saved data.
+            <div className={styles.about}>
+                <p>
+                    {language.about}
                 </p>
             </div>
-            <div>
-                <input type="text" placeholder="input name..." />
-                <input type="text" placeholder="input contact..." />
-                <textarea placeholder="descript you problem..." />
+            <div className={styles.feedback}>
+                <form onClick={sendMessage}>
+                    <h4>{language.feedback}</h4>
+                    <div>{language.name}<input className={styles.name} type="text" placeholder={language.placeholderName} name='nameUser'/></div>
+                    <div>{language.contact}<input className={styles.contact} type="text" placeholder={language.placeholderContact} name='contact' /></div>
+                    <div>{language.descript}<textarea className={styles.text} placeholder={language.placeholderDescript} name='descript' /></div>
+                    <button type='button'>{language.buttonSend}</button>
+                </form>
             </div>
         </div>
     )
 }
-
-export default About;
+const mapStateFromProp = ({language}) => {
+    return {
+        language,
+    }
+}
+export default connect(mapStateFromProp)(About);

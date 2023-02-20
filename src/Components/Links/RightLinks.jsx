@@ -6,7 +6,7 @@ import { initState } from '../../servise/storage'
 import styles from './RightLinks.module.scss'
 
 
-const RightLinks = ({setGroups, currentLink, dispatch}) => {
+const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
     const [stateVisib, setStateVisib] = useState('hidden');
     const deleteLink = (e, group, nameLink) => {
         delLink(group, nameLink);
@@ -31,13 +31,13 @@ const RightLinks = ({setGroups, currentLink, dispatch}) => {
         <div className={styles.right}>
             <div className={styles.info}>
                 <div className={styles.conteinerLink}>
-                    <h4>Group: {currentLink.group}</h4>
-                    <h4>Name: {currentLink.nameLink}</h4>
-                    <p>url: {currentLink.url}</p>
-                    <p>Comments: {currentLink.comment}</p>
+                    <h4>{language.group}: {currentLink.group}</h4>
+                    <h4>{language.name}: {currentLink.nameLink}</h4>
+                    <p>{language.URL}: {currentLink.url}</p>
+                    <p>{language.comments}: {currentLink.comment}</p>
                     <div className={styles.boxButton}>
-                        <button className={styles.button} onClick={(e) => openModal(e, currentLink.group, currentLink.nameLink)}>Edit</button>
-                        <button className={styles.button} onClick={(e) => deleteLink(e, currentLink.group, currentLink.nameLink)} >Delete</button>
+                        <button className={styles.button} onClick={(e) => openModal(e, currentLink.group, currentLink.nameLink)}>{language.buttonEdit}</button>
+                        <button className={styles.button} onClick={(e) => deleteLink(e, currentLink.group, currentLink.nameLink)} >{language.buttonDelete}</button>
                     </div>
                     
                 </div>
@@ -53,9 +53,10 @@ const RightLinks = ({setGroups, currentLink, dispatch}) => {
         </div>
     )
 }
-const mapStateFromProp = ({currentLink}) => {
+const mapStateFromProp = ({currentLink, language}) => {
     return {
-        currentLink
+        currentLink,
+        language
     }
 }
 export default connect(mapStateFromProp)(RightLinks) ;

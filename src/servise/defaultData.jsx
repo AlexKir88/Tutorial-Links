@@ -1,3 +1,4 @@
+
 export const defaultGroup = {
     name: 'HTML & CSS',
     color: 'orange',
@@ -25,5 +26,8 @@ export const defaultNotes = [
         4. >npm install sass`
     }
 ]
+
+export const tlgToken = '6212081657:AAEwQjeJqleK9oGej_cAlchTYPH4TazWWn8';
+export const tlgIdChat = '-889961446';
 
 

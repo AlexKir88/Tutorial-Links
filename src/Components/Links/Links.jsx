@@ -7,7 +7,7 @@ import ModalGroup from './ModalGroup';
 import { addLink, addGroup, delGroup, getGroups, addDefoultData} from '../../servise/linksDataFunctions';
 import { connect } from 'react-redux';
 
-const Links = ({groups, setGroups, dispatch}) => {
+const Links = ({groups, setGroups, language, dispatch}) => {
     const [stateVisib, setStateVisib] = useState('hidden');
     const [currentGroup, setcurrentGroup] = useState();
 
@@ -58,8 +58,8 @@ const Links = ({groups, setGroups, dispatch}) => {
             return(
                 <div key={item.name} className={styles.group} style={{backgroundColor: item.color}}>
                     <ul type='none'>
-                        <TbTrashX size={23} className={styles.delGroup} onClick={() => deleteGroup(item.name)}  title='delete group'/>
-                        <button onClick={inpLink} value={item.name} className={styles.addLink} title='add link'><FiPlus size={23} /></button>
+                        <TbTrashX size={23} className={styles.delGroup} onClick={() => deleteGroup(item.name)}  title={language.promtDeldGroup}/>
+                        <button onClick={inpLink} value={item.name} className={styles.addLink} title={language.promtAddLink}><FiPlus size={23} /></button>
                         <h4 className={styles.headerGroup}>{item.name}</h4>
                         {item.content.map((elem) => {
                             let currentLinkObj = {
@@ -84,5 +84,9 @@ const Links = ({groups, setGroups, dispatch}) => {
     )
 }
 
-
-export default connect()(Links);
+const mapStateFromProp = ({language}) => {
+    return {
+        language,
+    }
+}
+export default connect(mapStateFromProp)(Links);
