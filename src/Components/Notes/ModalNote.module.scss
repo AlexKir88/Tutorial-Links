@@ -1,3 +1,12 @@
+.fullScreen{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(88, 86, 86, 0.7);
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
 .modalWindow {
     display: flex;
     flex-direction: column;

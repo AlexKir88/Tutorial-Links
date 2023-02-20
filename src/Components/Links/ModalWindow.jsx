@@ -30,20 +30,22 @@ const ModalWindow = ({currentLink, language, setstateVisib, visibility, pushLink
         e.preventDefault();
     }
     return(
-        <form className={styles.modalWindow} onSubmit={doneEnter} ref={form} style={{visibility}}>
-            <button className={styles.close} onClick={close}>X</button>
-            <h3>{language.inputData}</h3>
-            <div className={styles.boxField}>
-                <span>name</span> <input name='name' type='text' className={styles.name} />
-            </div>
-            <div className={styles.boxField}>
-                <span>url</span> <input  name='url' type='text' className={styles.url} />
-            </div>
-            <div className={styles.boxField}>
-                 <span>comment</span> <textarea name='comment' className={styles.comment} />
-            </div>
-            <button type='submit' className={styles.add}>done</button>
-        </form>
+        <div className={styles.fullScreen} style={{visibility}}>
+            <form className={styles.modalWindow} onSubmit={doneEnter} ref={form} style={{visibility}}>
+                <button className={styles.close} onClick={close}>X</button>
+                <h3>{language.inputData}</h3>
+                <div className={styles.boxField}>
+                    <span>{language.name}</span> <input name='name' type='text' className={styles.name} />
+                </div>
+                <div className={styles.boxField}>
+                    <span>{language.URL}</span> <input  name='url' type='text' className={styles.url} />
+                </div>
+                <div className={styles.boxField}>
+                    <span>{language.comments}</span> <textarea name='comment' className={styles.comment} />
+                </div>
+                <button type='submit' className={styles.add}>{language.buttonDone}</button>
+            </form>
+        </div>
     )
 }
 const mapStateFromProp = ({currentLink, language}) => {

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { addNote, editNote, getsNotes } from '../../servise/notesDataServise';
 import { initState } from '../../servise/storage';
 
-const ModalNote = ({ setVisibility, visibility, setNotes, isEdit, currentNote, dispatch}) => {
+const ModalNote = ({ setVisibility, visibility, setNotes, isEdit, currentNote, language, dispatch}) => {
 
  const form = useRef();
     useEffect(()=> {
@@ -44,23 +44,26 @@ const ModalNote = ({ setVisibility, visibility, setNotes, isEdit, currentNote, d
     }
 
     return(
-        <form className={styles.modalWindow}  ref={form} style={{visibility}}>
-            <button className={styles.close} onClick={close}>X</button>
-            <h3>Input data</h3>
-            <div className={styles.boxField}>
-                <span>name</span> <input name='nameNote' type='text' className={styles.name} />
-            </div>
-            <div className={styles.boxField}>
-                 <span>content</span> <textarea name='content' className={styles.content} />
-            </div>
-            <button type='button' name='done' onClick={doneEnter} className={styles.add}>done</button>
-        </form>
+        <div className={styles.fullScreen} style={{visibility}}>
+            <form className={styles.modalWindow}  ref={form} style={{visibility}}>
+                <button className={styles.close} onClick={close}>X</button>
+                <h3>{language.inputData}</h3>
+                <div className={styles.boxField}>
+                    <span>{language.name}</span> <input name='nameNote' type='text' className={styles.name} />
+                </div>
+                <div className={styles.boxField}>
+                    <span>{language.content}</span> <textarea name='content' className={styles.content} />
+                </div>
+                <button type='button' name='done' onClick={doneEnter} className={styles.add}>{language.buttonDone}</button>
+            </form>
+        </div>
     )
 }
 
-const mapStateFromProps = ({currentNote}) => {
+const mapStateFromProps = ({currentNote, language}) => {
     return {
-        currentNote
+        currentNote,
+        language
     }
 }
 export default connect(mapStateFromProps)(ModalNote)

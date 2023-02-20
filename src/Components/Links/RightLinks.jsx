@@ -9,6 +9,7 @@ import styles from './RightLinks.module.scss'
 const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
     const [stateVisib, setStateVisib] = useState('hidden');
     const deleteLink = (e, group, nameLink) => {
+        if(!nameLink) return;
         delLink(group, nameLink);
         getGroups(setGroups);
         dispatch({
@@ -17,6 +18,7 @@ const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
         })
     }
     const openModal = (e, group, nameLink) => {
+        if(!nameLink) return;
         setStateVisib('visible')
     }
     const pushLink = (objectLink) => {

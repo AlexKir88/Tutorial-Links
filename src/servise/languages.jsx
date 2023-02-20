@@ -83,5 +83,5 @@ export const RU = {
     nameColor: 'имя и цвет группы',
     buttonDone: 'Готово',
     color: 'цвет',
-    inputData: 'введите данные',
+    inputData: 'Введите данные',
 }
