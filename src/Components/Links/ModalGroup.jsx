@@ -22,6 +22,7 @@ const ModalGroup = ({pushGroup, visibilityModalGroup, language, dispatch}) => {
         e.preventDefault();
     }
     return(
+        <div className={styles.fullScreen} style={{visibility: visibilityModalGroup}}>
         <form className={styles.modalWindow} onSubmit={doneEnter} ref={form} style={{visibility: visibilityModalGroup}}>
             <button className={styles.close} onClick={close}>X</button>
             <h3>{language.nameColor}</h3>
@@ -43,6 +44,7 @@ const ModalGroup = ({pushGroup, visibilityModalGroup, language, dispatch}) => {
             </div>
             <button type='submit' className={styles.add}>{language.buttonDone}</button>
         </form>
+        </div>
     )
 }
 const mapStateFromProp = ({visibilityModalGroup, language}) => {
