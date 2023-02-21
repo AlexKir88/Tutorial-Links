@@ -12,12 +12,13 @@
     }
 }
 .menu {
+    position: fixed;
     width: 14vw;
     padding: 1vw ;
-    margin: 0;
+    margin: -5px;
     background-color: rgb(13, 12, 12);
     color: white;
-    height: 89vh;
+    height: 99vh;
 }
 
 .boxButton {

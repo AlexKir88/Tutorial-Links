@@ -4,10 +4,10 @@
     width: 20vw;
     height: 93vh;
     border: 1px solid rgba(101, 97, 97, 0.5);
+    position: relative;
+    left: 11vw;
 }
 .info {
-    // height: max-content;
-    // border: 1px solid rgba(101, 97, 97, 0.5);
     padding: 1vw;
     overflow: hidden;
 }
@@ -21,17 +21,17 @@
 }
 .boxButton {
     display: flex;
+    visibility: visible;
 }
 .button {
     color: white;
     position: relative;
     border-radius: 0.7vw;
-    width: 5vw;
+    width: 6vw;
     margin-right: 2vw;
     background-color:rgb(13, 12, 12);
     height: 2rem;
     cursor: pointer;
-
     &:hover {
         background-color: rgb(50, 48, 48);
     }

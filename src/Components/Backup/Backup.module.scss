@@ -12,6 +12,8 @@
     background-color: rgb(103, 21, 210);
     color: white;
     padding: 0.5vh 1vw;
+    position: relative;
+    left: 15vw
 }
 .buttonSend, .buttonLoad  {
     background-color: rgb(13, 12, 12);
@@ -25,5 +27,4 @@
         background-color: rgb(32, 27, 33);
     }
 }
-.message {
-}
+

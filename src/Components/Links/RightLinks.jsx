@@ -1,13 +1,21 @@
 import { connect } from 'react-redux'
 import { delLink, getGroups, editLink } from '../../servise/linksDataFunctions'
 import ModalWindow from './ModalWindow'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { initState } from '../../servise/storage'
 import styles from './RightLinks.module.scss'
 
 
 const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
     const [stateVisib, setStateVisib] = useState('hidden');
+    let boxButton;
+    useEffect(() => {
+        if(!currentLink.nameLink) {
+            boxButton.style.visibility = 'hidden';
+            return;
+        };
+        boxButton.style.visibility = 'visible';
+    }, [currentLink])
     const deleteLink = (e, group, nameLink) => {
         if(!nameLink) return;
         delLink(group, nameLink);
@@ -37,8 +45,8 @@ const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
                     <h4>{language.name}: {currentLink.nameLink}</h4>
                     <p>{language.URL}: {currentLink.url}</p>
                     <p>{language.comments}: {currentLink.comment}</p>
-                    <div className={styles.boxButton}>
-                        <button className={styles.button} onClick={(e) => openModal(e, currentLink.group, currentLink.nameLink)}>{language.buttonEdit}</button>
+                    <div className={styles.boxButton}  ref={e => boxButton = e}>
+                        <button className={styles.button} onClick={(e) => openModal(e, currentLink.group, currentLink.nameLink)} >{language.buttonEdit}</button>
                         <button className={styles.button} onClick={(e) => deleteLink(e, currentLink.group, currentLink.nameLink)} >{language.buttonDelete}</button>
                     </div>
                     

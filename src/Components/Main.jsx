@@ -6,6 +6,7 @@ import Notes from './Notes/Notes';
 import RightNote from './Notes/RightNote';
 import Backup from './Backup/Backup'
 import About from './About/About';
+import styles from './Main.module.scss'
 
 function Main( {currentMenu, currentNote, dispatch}) {
   const [groups, setGroups] = useState([]);
