@@ -1,9 +1,9 @@
-import { defaultGroup, defaultNotes } from "./defaultData";
+import { defaultGroup, defaultNotes, nameDB } from "./defaultData";
 import { addNote } from "./notesDataServise";
 
 export const addDefoultData = (setGroups) => {
     let firstTime = false;
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onupgradeneeded = () => {
         const result = indDB.result;
         result.createObjectStore('groups');
@@ -29,7 +29,7 @@ export const addDefoultData = (setGroups) => {
 
 export const addGroup = (name, color) => {
 
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
         const groups = transaction.objectStore('groups');
@@ -45,7 +45,7 @@ export const addGroup = (name, color) => {
 }
 
 export const delGroup = (nameGroup) => {
-    let indDB = indexedDB.open('main', 1);
+    let indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups' , 'readwrite');
         const groups = transaction.objectStore('groups');
@@ -57,7 +57,7 @@ export const delGroup = (nameGroup) => {
 }
 
 export const addLink = (nameGroup, {nameLink, url, comment} ) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
         const groups = transaction.objectStore('groups');
@@ -90,7 +90,7 @@ export const addLink = (nameGroup, {nameLink, url, comment} ) => {
 }
 
 export const getGroups = (setGroups) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readonly');
         const groups = transaction.objectStore('groups');
@@ -102,7 +102,7 @@ export const getGroups = (setGroups) => {
 }
 
 export const delLink = (group, nameLink) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
         const groupsStore = transaction.objectStore('groups');
@@ -117,7 +117,7 @@ export const delLink = (group, nameLink) => {
 }
 
 export const editLink = (group, oldName,  objLink) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('groups', 'readwrite');
         const groupsStore = transaction.objectStore('groups');
