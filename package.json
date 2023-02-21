@@ -1,4 +1,5 @@
 {
+  "homepage": "https://alexkir88.github.io/Tutorial-Links/",
   "name": "tlinks",
   "version": "0.1.0",
   "private": true,
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
