@@ -14,18 +14,18 @@ const About = ({language}) => {
         e.currentTarget[2].value = '';
     }
     return (
-        <div>
+        <div className={styles.main}>
             <div className={styles.about}>
                 <p>
                     {language.about}
                 </p>
             </div>
             <div className={styles.feedback}>
-                <form onClick={sendMessage}>
+                <form onClick={sendMessage} className={styles.form}>
                     <h4>{language.feedback}</h4>
                     <div>{language.name}<input className={styles.name} type="text" placeholder={language.placeholderName} name='nameUser'/></div>
                     <div>{language.contact}<input className={styles.contact} type="text" placeholder={language.placeholderContact} name='contact' /></div>
-                    <div>{language.descript}<textarea className={styles.text} placeholder={language.placeholderDescript} name='descript' /></div>
+                    <div className={styles.content}>{language.descript}<textarea className={styles.text} placeholder={language.placeholderDescript} name='descript' /></div>
                     <button type='button'>{language.buttonSend}</button>
                 </form>
             </div>

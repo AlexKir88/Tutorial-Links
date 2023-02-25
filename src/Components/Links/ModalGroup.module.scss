@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     visibility: hidden;
+    z-index: 1000;
 }
 .modalWindow {
     display: flex;
@@ -86,4 +87,46 @@
     width: 5vw;
     height: 1rem;
     margin-top: 0.5vw;
+}
+@media only screen and (max-width: 1000px) {
+    .modalWindow{
+        width: 95vw;
+        height: 60vh;
+        position: fixed;
+        top: 10vh;
+        left: 2vw;
+    }
+    .boxField {
+        span {
+            width: 40vw;
+        }
+    }
+    .name {
+        height: 1.5rem;
+        width: 70vw;
+    }
+    .add {
+        position: fixed;
+        width: 30vw;
+        height: 3rem;
+        left: 13vw;
+        top: 60vh;
+    }
+    .close {
+        width: 10vw;
+        height: 11vw;
+        left: 85vw;
+    }
+    .square {
+        width: 10vw;
+        height: 3vh;
+    }
+
+    .inputColor {
+        display: flex;
+        width: 20vw;
+        height: 1rem;
+        margin: 3vw;
+    }
+    
 }

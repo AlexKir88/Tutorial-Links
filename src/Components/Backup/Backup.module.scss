@@ -28,3 +28,18 @@
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    .container {
+        width: 80vw;
+        height: 60vh;
+    }
+
+    .backup {
+        width: 70vw;
+        height: 50vh;
+        border-radius: 3vw;
+        position: fixed;
+        left: -5vw;
+        top: 20vh;
+    }
+}

@@ -58,3 +58,36 @@
     display: inline-block;
     width: 10vw;
 }
+@media only screen and (max-width: 1000px){
+    .main{
+        width: 99vw;
+        height: 93vh;
+        top: 23vh;
+        left: 2vw;
+    }
+    .group {
+        width: 90vw;
+        min-width: 90vw;
+        min-height: max-content;
+    }
+    .headerGroup {
+        margin: 0 0 1vw 0;
+        width: 85vw;
+    }
+    .link {
+        width: 85vw;
+    }
+    .addLink {
+        top: 1vh;
+        left: 50vw;
+    }
+    .delGroup {
+        top: 1vh;
+        left: 50vw;  
+    }
+    .ulGroup {
+        display: inline-block;
+        margin: 0;
+        height: max-content;
+    }
+}

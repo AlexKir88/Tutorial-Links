@@ -1,5 +1,7 @@
+import { nameDB } from "./defaultData";
+
 export const addNote = (objNote) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('notes', 'readwrite');
         const notes = transaction.objectStore('notes');
@@ -11,7 +13,7 @@ export const addNote = (objNote) => {
 }
 
 export const getsNotes = (setNotes) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('notes', 'readonly');
         const notes = transaction.objectStore('notes');
@@ -23,7 +25,7 @@ export const getsNotes = (setNotes) => {
 } 
 
 export const editNote = (oldName, objNote) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('notes', 'readwrite');
         const notes = transaction.objectStore('notes');
@@ -35,7 +37,7 @@ export const editNote = (oldName, objNote) => {
 }
 
 export const  delNote = (name) => {
-     const indDB = indexedDB.open('main', 1);
+     const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction = indDB.result.transaction('notes', 'readwrite');
         const notes = transaction.objectStore('notes');
@@ -44,7 +46,7 @@ export const  delNote = (name) => {
 }
 
 export const getAllData = (saveFileCallback, aRef ) => {
-    const indDB = indexedDB.open('main', 1);
+    const indDB = indexedDB.open(nameDB, 1);
     indDB.onsuccess = () => {
         const transaction1 = indDB.result.transaction('groups', 'readonly');
         const groups = transaction1.objectStore('groups');

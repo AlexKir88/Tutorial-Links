@@ -19,7 +19,7 @@
     color: white;
     word-wrap: break-word;
     border-radius: 1vw;
-    padding: 3vh 3vw 1vw;;
+    padding: 3vh 3vw 1vw;
     position: relative;
     left: 15vw;
     button {
@@ -43,10 +43,6 @@
         margin-left: 2vw;
         height: 1.5rem;
     }
-    .text {
-        border-radius: 0.5vw;
-        margin-left: 1vw;
-    }
     .contact {
         border-radius: 0.5vw;
         margin: 0 0 1vh 1.2vw;
@@ -55,5 +51,51 @@
    .text {
     width: 50vw;
     height: 12vh;
+    border-radius: 0.5vw;
+    margin-left: 1vw;
    }
+}
+@media only screen and (max-width: 1000px) {
+    .main {
+        overflow-y: auto;
+    }
+    .about {
+        width: 90vw;
+        border-radius: 3vw;
+        margin: 1vh 1vw;
+        left: -1vw;
+        top: 22vh
+    }
+    .feedback {
+        margin: 1vh 1vw;
+        width: 90vw;
+        height: auto;
+        border-radius: 3vw;
+        left: -1vw;
+        top: 22vh;
+        padding: 0 3vw 1vw;
+        button {
+            display: block;
+            margin: 2vh ;
+            height: 3vh;
+            width: 15vw;
+            position: relative;
+            left: 70vw;
+        }
+        .text {
+            display: block;
+            width: 60vw;
+            height: 5vh;
+        }
+    }
+    .content {
+        width: 90vw;
+        height: 5vh;
+        margin: 0;
+    }
+    
+    .form {
+        width: 90vw;
+        padding: 1vw;
+    }
 }

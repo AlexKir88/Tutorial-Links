@@ -27,8 +27,6 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    
-    
 }
 .create {
     color: white;
@@ -54,5 +52,27 @@
     border-radius: 0.5vw;
     &:hover {
         background-color: rgb(32, 27, 33);
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .menu{
+        width: 99vw;
+        height: 22vh;
+        z-index: 100;
+    }
+    .create {
+        width: 20vw;
+        position: relative;
+        top: 0.5vh
+    }
+    .boxButton {
+        flex-direction: row;
+        left: 1vw;
+    }
+    .buttonMenu {
+        width: 19vw;
+        align-items: start;
+        height: 6vh;
+        overflow: hidden;
     }
 }

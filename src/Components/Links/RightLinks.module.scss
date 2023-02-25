@@ -48,3 +48,24 @@
         margin: 0;
     }
 }
+@media only screen and (max-width: 1000px) {
+    .right {
+        width: 97vw;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        h4, p {
+            margin: 0;
+        }
+    }
+    .iframe {
+        display: none;   
+    }
+    .conteinerLink {
+        width: 97vw;
+    }
+    .button {
+        width: 20vw;
+    }
+}

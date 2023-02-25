@@ -5,9 +5,16 @@ import { TbNotes} from'react-icons/tb';
 import { MdOutlineBackup} from'react-icons/md';
 import { BsFillInfoSquareFill} from'react-icons/bs';
 import { EN, RU } from '../servise/languages';
+import { useEffect } from 'react';
 
 const Menu = ({currentMenu, language, dispatch}) => {
-
+    let buttonCreateRef;
+    useEffect(() => {
+        if (currentMenu == 'Links') {
+            buttonCreateRef.style.visibility = 'visible';
+            return;
+        } buttonCreateRef.style.visibility = 'hidden';
+    }, [currentMenu]);
     const matchName = (el) => {
         if (el == null) return;
         if (el.name == currentMenu) {
@@ -62,7 +69,7 @@ const Menu = ({currentMenu, language, dispatch}) => {
         </div>
         <div className={styles.header}><h2>{language.TutorialLinks}</h2></div>
         <div className={styles.boxButton}>
-            <button className={styles.create} onClick={clickCreate}>{language.buttonCreateGroup}</button>
+            <button className={styles.create} ref={(e) => buttonCreateRef = e } onClick={clickCreate}>{language.buttonCreateGroup}</button>
             <button className={styles.buttonMenu} name='Links' onClick={(e) => choiseMenu(e, 'Links')} ref={matchName}><AiOutlineLink /> {language.buttonLinks}</button>
             <button className={styles.buttonMenu} name='Notes' onClick={(e) => choiseMenu(e, 'Notes')} ref={matchName}><TbNotes /> {language.buttonNotes}</button>
             <button className={styles.buttonMenu} name='Backup' onClick={(e) => choiseMenu(e, 'Backup')} ref={matchName}><MdOutlineBackup /> {language.buttonBackUp}</button>

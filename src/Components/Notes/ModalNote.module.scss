@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     visibility: hidden;
+    z-index: 1000;
 }
 .modalWindow {
     display: flex;
@@ -67,4 +68,32 @@
     position: relative;
     left: 34vw;
     cursor: pointer;
+}
+@media only screen and (max-width: 1000px) {
+    .modalWindow {
+        display: flex;
+        flex-direction: column;
+        width: 85vw;
+        height: 50vh;
+        top: 25vh;
+        left: 5vw;
+    }
+    .name {
+        width: 70vw;
+    }
+
+    .content {
+        width: 80vw;
+        display: block;
+    }
+
+    .add {
+        width: 20vw;
+    }
+
+    .close {
+        width: 10vw;
+        height: 10vh;
+        left: 75vw;
+    }
 }

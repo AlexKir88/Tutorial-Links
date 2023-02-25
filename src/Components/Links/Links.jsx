@@ -57,7 +57,7 @@ const Links = ({groups, setGroups, language, dispatch}) => {
         {groups?.map((item) => {
             return(
                 <div key={item.name} className={styles.group} style={{backgroundColor: item.color}}>
-                    <ul type='none'>
+                    <ul type='none' className='ulGroup'>
                         <TbTrashX size={23} className={styles.delGroup} onClick={() => deleteGroup(item.name)}  title={language.promtDeldGroup}/>
                         <button onClick={inpLink} value={item.name} className={styles.addLink} title={language.promtAddLink}><FiPlus size={23} /></button>
                         <h4 className={styles.headerGroup}>{item.name}</h4>
