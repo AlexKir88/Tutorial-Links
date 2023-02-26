@@ -22,7 +22,7 @@
 }
 
 .boxButton {
-    margin-top: 5vw;
+    margin-top: 12vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,6 +66,8 @@
         top: 0.5vh
     }
     .boxButton {
+        position: fixed;
+        top: 5vh;
         flex-direction: row;
         left: 1vw;
     }

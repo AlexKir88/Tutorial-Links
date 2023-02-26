@@ -20,17 +20,18 @@
 @media only screen and (max-width: 1000px) {
     .side {
         border:none;
-        width: 90vw;
-        min-height: 25vh;
+        width: 93vw;
+        height: 13vh;
         position: fixed;
         bottom: 1vh;
         left: 0;
     }
     .info {
-        width: 90vw;
+        width: 93vw;
         padding: 3vw;
         font-size: 1.5vh;
         position: fixed;
         bottom: 0;
+        height: 12vh;
     }
 }

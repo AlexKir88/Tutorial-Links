@@ -5,7 +5,7 @@
     height: 93vh;
     border: 1px solid rgba(101, 97, 97, 0.5);
     position: relative;
-    left: 11vw;
+    left: 15vw;
 }
 .info {
     padding: 1vw;
@@ -43,19 +43,19 @@
     height: auto;
     padding: 0;
     iframe {
-        width: 18vw;
+        width: 17vw;
         height: 30vh;
         margin: 0;
     }
 }
 @media only screen and (max-width: 1000px) {
     .right {
-        width: 97vw;
-        height: auto;
+        width: 99vw;
+        height: 20vh;
         position: fixed;
         bottom: 0;
         left: 0;
-        h4, p {
+        h4, p,button {
             margin: 0;
         }
     }
