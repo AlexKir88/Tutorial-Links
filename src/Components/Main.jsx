@@ -7,43 +7,30 @@ import RightNote from './Notes/RightNote';
 import Backup from './Backup/Backup'
 import About from './About/About';
 import styles from './Main.module.scss'
+import {Routes, Route} from 'react-router-dom';
 
-function Main( {currentMenu, currentNote, dispatch}) {
+function Main( { currentNote}) {
   const [groups, setGroups] = useState([]);
-  const mainContent = {
-    Links: (
-      <>
-        <Links groups={groups} setGroups={setGroups} />
-        <RightLinks setGroups={setGroups} />
-      </>
-    ),
-    Notes: (
-      <>
-        <Notes />
-        <RightNote currentNote={currentNote}/>
-      </>
-    ),
-    Backup: (
-      <>
-        <Backup />
-      </>
-    ),
-    About: (
-      <>
-        <About />
-      </>
-    )
-  }
+
   return (
     <>
-      {mainContent[currentMenu]}
+      <Routes>
+        <Route path='/' element={
+          <> <Links groups={groups} setGroups={setGroups}/>  <RightLinks setGroups={setGroups} /> </>
+        } />
+        <Route path='/notes' element={
+          <>  <Notes /> <RightNote currentNote={currentNote}/> </>
+        } />
+        <Route path='/backup' element={<Backup />} />
+        <Route path='/about' element={<About />} />
+        <Route path='*' element={<div style={{position: 'relative', left: '40vw'}}><h1>not found page</h1></div>} />
+      </Routes>
     </>
   );
 }
 
-const mapStateFromProp = ({currentMenu, currentNote}) => {
+const mapStateFromProp = ({ currentNote}) => {
   return {
-    currentMenu,
     currentNote
   }
 }

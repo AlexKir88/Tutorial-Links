@@ -41,7 +41,11 @@
         background-color: rgb(168, 123, 227);
     }
 }
+
 .buttonMenu {
+    box-sizing: border-box;
+    font-size: 2.5vh;
+    display: block;
     width: 10vw;
     background-color:rgb(13, 12, 12, 0.5);
     cursor: pointer;
@@ -50,11 +54,18 @@
     color: white;
     text-align: start;
     border-radius: 0.5vw;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    padding: 0.5vh 0 0 0.5vw;
+    text-decoration: none;
     &:hover {
         background-color: rgb(32, 27, 33);
     }
 }
 @media only screen and (max-width: 1000px) {
+    svg {
+        display: none;
+    }
     .menu{
         width: 99vw;
         height: 22vh;
@@ -72,6 +83,8 @@
         left: 1vw;
     }
     .buttonMenu {
+        font-size: 1.5vh;
+        text-align: center;
         width: 19vw;
         align-items: start;
         height: 6vh;

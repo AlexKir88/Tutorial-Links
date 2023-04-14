@@ -27,7 +27,7 @@ const ModalGroup = ({pushGroup, visibilityModalGroup, language, dispatch}) => {
             <button className={styles.close} onClick={close}>X</button>
             <h3>{language.nameColor}</h3>
             <div className={styles.boxField}>
-                <div>{language.name}</div> <input name='name' type='text' className={styles.name}/>
+                <div>{language.name}</div> <input name='name' autocomplete='off' type='text' className={styles.name}/>
             </div>
             <div>{language.color}</div>
             <div className={styles.boxField}>
