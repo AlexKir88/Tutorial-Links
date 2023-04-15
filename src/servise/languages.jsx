@@ -4,7 +4,32 @@ export let defoultLang = () => {
     return EN;
 }
 
-export const EN = {
+export const currentLang = (e, language) => {
+    if(e === null) return;
+    if(e.name === language.id) {
+        e.style.border = '1px solid white'
+    }else {
+        e.style = '';
+    }
+}
+
+export const setLang = (e, dispatch) => {
+    if (e.target.name === 'RU') {
+        dispatch({
+            type: 'LANG',
+            language: RU
+        })
+    }
+    if (e.target.name === 'EN') {
+        dispatch({
+            type: 'LANG',
+            language: EN
+        })
+    }
+}
+    
+
+const EN = {
     id: 'EN',
     TutorialLinks: 'Tutorial Links',
     buttonCreateGroup: 'Create group',
@@ -43,9 +68,10 @@ export const EN = {
     buttonDone: 'done',
     color: 'color',
     inputData: 'Input data',
+    error404: '404 not found page',
 }
 
-export const RU = {
+const RU = {
     id: 'RU',
     TutorialLinks: 'Учебные ссылки',
     buttonCreateGroup: 'Создать группу',
@@ -84,4 +110,5 @@ export const RU = {
     buttonDone: 'Готово',
     color: 'цвет',
     inputData: 'Введите данные',
+    error404: '404 страница не найдена',
 }

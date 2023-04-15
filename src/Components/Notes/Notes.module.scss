@@ -5,10 +5,11 @@
     height: 90vh;
     position: relative;
     left: 16vw;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 .note {
+    display: flex;
     min-height: 5vh;
     width: 48vw;
     border: 1px solid black;
@@ -18,10 +19,13 @@
     background-color: rgb(118, 186, 241);
     cursor: pointer;
 }
+.nameNote {
+    overflow: hidden;
+    width: 75vw;
+}
 .edit {
     position: relative;
-    left: 44vw;
-    top: -1vw;
+    margin-right: 2vw;
     cursor: pointer;
     &:hover {
         color: red;
@@ -29,8 +33,6 @@
 }
 .trash {
     position: relative;
-    left: 45vw;
-    top: -1vw;
     cursor: pointer;
     &:hover {
         color: red;
@@ -57,7 +59,7 @@
 @media only screen and (max-width: 1000px) {
     .cont {
         width: 98vw;
-        height: 60vh;
+        height: 57vh;
         position: relative;
         left: 1vw;
         overflow-y: auto;
@@ -66,6 +68,7 @@
         align-items: start;
     }
     .note {
+        display: flex;
         height: 4vh;
         width: 90vw;
         margin: 1vw;
@@ -74,13 +77,9 @@
         border-radius: 3vw;
         left: 40vw;
     }
-    .edit {
-        left: 75vw;
-        top: -3vh;
-    }
-
-    .trash {
-        left: 75vw;
-        top: -3vh;
+    .nameNote {
+        overflow: hidden;
+        width: 75vw;
+        height: 4vh;
     }
 }

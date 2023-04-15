@@ -44,7 +44,7 @@
 
 .buttonMenu {
     box-sizing: border-box;
-    font-size: 2.5vh;
+    font-size: 1.8vh;
     display: block;
     width: 10vw;
     background-color:rgb(13, 12, 12, 0.5);
@@ -56,14 +56,14 @@
     border-radius: 0.5vw;
     border-top: 1px solid grey;
     border-left: 1px solid grey;
-    padding: 0.5vh 0 0 0.5vw;
+    padding: 1.2vh 0 0 0.5vw;
     text-decoration: none;
     &:hover {
         background-color: rgb(32, 27, 33);
     }
 }
 @media only screen and (max-width: 1000px) {
-    svg {
+    .buttonMenu svg {
         display: none;
     }
     .menu{

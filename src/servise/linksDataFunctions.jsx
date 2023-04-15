@@ -109,7 +109,7 @@ export const delLink = (group, nameLink) => {
         const requestGet = groupsStore.get(group);
         requestGet.onsuccess = () => {
             const newContent = requestGet.result.content.filter((item) => {
-                return item.nameLink != nameLink;
+                return item.nameLink !== nameLink;
             })
             groupsStore.put(Object.assign(requestGet.result, {content: newContent}), group);
         }
@@ -124,7 +124,7 @@ export const editLink = (group, oldName,  objLink) => {
         const requestGet = groupsStore.get(group);
         requestGet.onsuccess = () => {
             const newContent =  requestGet.result.content.map((item) => {
-                if (item.nameLink == oldName) {
+                if (item.nameLink === oldName) {
                     return objLink;
                 }
                 return item;
@@ -133,3 +133,66 @@ export const editLink = (group, oldName,  objLink) => {
         }
     }
 }
+
+//Action of links
+
+export const inputLinkService = (e, setcurrentGroup, setStateVisib) => {
+    const nameGroup = e.currentTarget.value;
+    if(nameGroup){
+        setcurrentGroup(nameGroup);
+        setStateVisib('visible');
+    }
+}
+export const pushLinkService = ( objectLink, currentGroup, setGroups) => {
+    addLink(currentGroup, objectLink);
+    getGroups(setGroups);
+}
+
+export const clikLink = (e, curentLink, dispatch) => {
+    dispatch({
+        type: 'LINK',
+        link: curentLink,
+    })
+}
+export const goToService = (e, url) => {
+    if(!url) {
+        alert('empty link');
+        return
+    };
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.click();
+}
+
+export const editLinkService =  (objectLink, currentLink, setGroups, dispatch, initState ) => {
+    editLink(currentLink.group, currentLink.nameLink, objectLink);
+    getGroups(setGroups);
+    dispatch({
+        type: 'LINK',
+        link: initState.currentLink
+    })
+}
+
+export const deleteLink = (e, group, nameLink, setGroups, dispatch, initState) => {
+    if(!nameLink) return;
+    delLink(group, nameLink);
+    getGroups(setGroups);
+    dispatch({
+        type: 'LINK',
+        link: initState.currentLink
+    })
+}
+
+//actions of groups
+
+export const pushGroupServise = (name, color, setGroups) => {
+    addGroup(name, color);
+    getGroups(setGroups);
+}
+
+export  const deleteGroupSetrvise = (name, setGroups) => {
+    delGroup(name);
+    getGroups(setGroups);
+}
+

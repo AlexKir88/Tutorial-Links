@@ -35,10 +35,10 @@ const ModalWindow = ({currentLink, language, setstateVisib, visibility, pushLink
                 <button className={styles.close} onClick={close}>X</button>
                 <h3>{language.inputData}</h3>
                 <div className={styles.boxField}>
-                    <span>{language.name}</span> <input name='name' type='text'autocomplete='off' className={styles.name} />
+                    <span>{language.name}</span> <input name='name' type='text'autoComplete='off' required className={styles.name} />
                 </div>
                 <div className={styles.boxField}>
-                    <span>{language.URL}</span> <input  name='url' type='text' autocomplete='off' className={styles.url} />
+                    <span>{language.URL}</span> <input  name='url' type='url' autoComplete='off' required className={styles.url} />
                 </div>
                 <div className={styles.boxField}>
                     <span>{language.comments}</span> <textarea name='comment' className={styles.comment} />

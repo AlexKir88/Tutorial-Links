@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { delLink, getGroups, editLink } from '../../servise/linksDataFunctions'
+import { delLink, getGroups, editLink, editLinkService, deleteLink } from '../../servise/linksDataFunctions'
 import ModalWindow from './ModalWindow'
 import { useEffect, useState } from 'react'
 import { initState } from '../../servise/storage'
@@ -8,35 +8,21 @@ import styles from './RightLinks.module.scss'
 
 const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
     const [stateVisib, setStateVisib] = useState('hidden');
+    const pushLink = (objectLink) =>  editLinkService(objectLink, currentLink, setGroups, dispatch, initState );
     let boxButton;
+    const openModal = (e, nameLink) => {
+        if(!nameLink) return;
+        setStateVisib('visible')
+    }
+
     useEffect(() => {
         if(!currentLink.nameLink) {
             boxButton.style.visibility = 'hidden';
             return;
         };
         boxButton.style.visibility = 'visible';
-    }, [currentLink])
-    const deleteLink = (e, group, nameLink) => {
-        if(!nameLink) return;
-        delLink(group, nameLink);
-        getGroups(setGroups);
-        dispatch({
-            type: 'LINK',
-            link: initState.currentLink
-        })
-    }
-    const openModal = (e, group, nameLink) => {
-        if(!nameLink) return;
-        setStateVisib('visible')
-    }
-    const pushLink = (objectLink) => {
-        editLink(currentLink.group, currentLink.nameLink, objectLink);
-        getGroups(setGroups);
-        dispatch({
-            type: 'LINK',
-            link: initState.currentLink
-        })
-    }
+    }, [currentLink.nameLink])
+
     return (
         <div className={styles.right}>
             <div className={styles.info}>
@@ -46,8 +32,8 @@ const RightLinks = ({setGroups, currentLink, language, dispatch}) => {
                     <p>{language.URL}: {currentLink.url}</p>
                     <p>{language.comments}: {currentLink.comment}</p>
                     <div className={styles.boxButton}  ref={e => boxButton = e}>
-                        <button className={styles.button} onClick={(e) => openModal(e, currentLink.group, currentLink.nameLink)} >{language.buttonEdit}</button>
-                        <button className={styles.button} onClick={(e) => deleteLink(e, currentLink.group, currentLink.nameLink)} >{language.buttonDelete}</button>
+                        <button className={styles.button} onClick={(e) => openModal(e,  currentLink.nameLink)} >{language.buttonEdit}</button>
+                        <button className={styles.button} onClick={(e) => deleteLink(e, currentLink.group, currentLink.nameLink, setGroups, dispatch, initState)} >{language.buttonDelete}</button>
                     </div>
                     
                 </div>

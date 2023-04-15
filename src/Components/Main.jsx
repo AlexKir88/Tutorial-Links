@@ -9,28 +9,25 @@ import About from './About/About';
 import styles from './Main.module.scss'
 import {Routes, Route} from 'react-router-dom';
 
-function Main( { currentNote}) {
+function Main( { language, currentNote}) {
   const [groups, setGroups] = useState([]);
 
   return (
     <>
       <Routes>
-        <Route path='/' element={
-          <> <Links groups={groups} setGroups={setGroups}/>  <RightLinks setGroups={setGroups} /> </>
-        } />
-        <Route path='/notes' element={
-          <>  <Notes /> <RightNote currentNote={currentNote}/> </>
-        } />
-        <Route path='/backup' element={<Backup />} />
-        <Route path='/about' element={<About />} />
-        <Route path='*' element={<div style={{position: 'relative', left: '40vw'}}><h1>not found page</h1></div>} />
+        <Route path='Tutorial-Links/' element={<><Links groups={groups} setGroups={setGroups}/><RightLinks setGroups={setGroups} /></>} />
+        <Route path='Tutorial-Links/notes' element={<><Notes /><RightNote currentNote={currentNote}/></>} />
+        <Route path='Tutorial-Links/backup' element={<Backup />} />
+        <Route path='Tutorial-Links/about' element={<About />} />
+        <Route path='*' element={<div style={{position: 'relative', left: '40vw'}}><h1>{language.error404}</h1></div>} />
       </Routes>
     </>
   );
 }
 
-const mapStateFromProp = ({ currentNote}) => {
+const mapStateFromProp = ({ language, currentNote}) => {
   return {
+    language,
     currentNote
   }
 }
