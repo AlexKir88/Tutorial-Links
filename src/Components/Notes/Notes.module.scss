@@ -25,7 +25,7 @@
 }
 .edit {
     position: relative;
-    margin-right: 2vw;
+    margin-right: 1vw;
     cursor: pointer;
     &:hover {
         color: red;
@@ -49,7 +49,6 @@
     border-radius: 0.5vw;
     color: white;
     position: relative;
-    margin: 1vw;
     left: 23vw;
     cursor: pointer;
     &:hover {
@@ -76,6 +75,7 @@
     .plus {
         border-radius: 3vw;
         left: 40vw;
+        margin: 3vw;
     }
     .nameNote {
         overflow: hidden;

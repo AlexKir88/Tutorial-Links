@@ -52,8 +52,8 @@ const Notes = ({dispatch, currentNote }) => {
                 return (
                     <div className={styles.note} key={item.name} onClick={(e) => choiseNote(e, item)}>
                         <div  className={styles.nameNote} >{item.name}</div>
-                        <AiOutlineEdit onClick={(e) => clickEdit(e, item)} size={23} name='edit' className={styles.edit}/>
-                        <TbTrashX size={23}  onClick={(e) => clickDel(e, item)} name='trash' className={styles.trash}/> 
+                        <AiOutlineEdit onClick={(e) => clickEdit(e, item)} size={30} name='edit' className={styles.edit}/>
+                        <TbTrashX size={30}  onClick={(e) => clickDel(e, item)} name='trash' className={styles.trash}/> 
                     </div>
                 )
                 

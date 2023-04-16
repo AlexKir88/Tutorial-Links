@@ -154,7 +154,7 @@ export const clikLink = (e, curentLink, dispatch) => {
         link: curentLink,
     })
 }
-export const goToService = (e, url) => {
+export const goTo = (e, url) => {
     if(!url) {
         alert('empty link');
         return
@@ -191,7 +191,7 @@ export const pushGroupServise = (name, color, setGroups) => {
     getGroups(setGroups);
 }
 
-export  const deleteGroupSetrvise = (name, setGroups) => {
+export  const deleteGroup = (name, setGroups) => {
     delGroup(name);
     getGroups(setGroups);
 }

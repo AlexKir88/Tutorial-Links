@@ -19,7 +19,7 @@ function Main( { language, currentNote}) {
         <Route path='Tutorial-Links/notes' element={<><Notes /><RightNote currentNote={currentNote}/></>} />
         <Route path='Tutorial-Links/backup' element={<Backup />} />
         <Route path='Tutorial-Links/about' element={<About />} />
-        <Route path='*' element={<div style={{position: 'relative', left: '40vw'}}><h1>{language.error404}</h1></div>} />
+        <Route path='Tutorial-Links/*' element={<div style={{position: 'relative', left: '40vw'}}><h1>{language.error404}</h1></div>} />
       </Routes>
     </>
   );
